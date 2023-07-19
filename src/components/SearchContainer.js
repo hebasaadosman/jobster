@@ -10,7 +10,7 @@ import { useState, useMemo } from 'react'
 const SearchContainer = () => {
   const [localSearch, setLocalSearch] = useState('')
 
-  const { isLoading, search, searchStatus, searchType, sort, sortOptions } =
+  const { isLoading, searchStatus, searchType, sort, sortOptions } =
     useSelector((store) => store.allJobs)
 
   const { jobTypeOptions, statusOptions } = useSelector((store) => store.job)
@@ -35,6 +35,7 @@ const SearchContainer = () => {
       }, 1000)
     }
   }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const optimizedDebounce = useMemo(() => debounce(), [])
 
   const handleSubmit = (e) => {

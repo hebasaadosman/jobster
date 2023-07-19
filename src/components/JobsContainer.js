@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import Job from './Job'
 import Wrapper from '../assets/wrappers/JobsContainer'
 import { useSelector, useDispatch } from 'react-redux'
-import { Loading, PageBtnContainer } from '../components'
+import { Loading ,PageBtnContainer} from '../components'
 import { getAllJobs } from '../features/allJobs/allJobsSlice'
 
 const JobsContainer = () => {
@@ -21,6 +21,7 @@ const JobsContainer = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getAllJobs())
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [page, search, searchStatus, searchType, sort])
   if (isLoading) {
     return (
